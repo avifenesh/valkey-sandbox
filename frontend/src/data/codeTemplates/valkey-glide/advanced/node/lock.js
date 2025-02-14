@@ -8,7 +8,7 @@ async function lockExample(client, lockKey, resourceKey) {
     // Try to acquire lock with 10 second expiry
     const lockAcquired = await client.set(lockKey, 'locked', {
           conditionalSet: 'onlyIfDoesNotExist',
-          expiry: { type: 'EX', count: 3 },
+          expiry: { type: 'EX', count: 10 },
         });
     if (lockAcquired) {
         try {
